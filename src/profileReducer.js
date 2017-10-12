@@ -8,7 +8,7 @@ const initialProfileState = {
 export default (state = initialProfileState, action) => {
   switch (action.type) {
     case SET_PROFILE:
-      return Object.assign({}, state, action.profile);
+    return Object.assign({}, state, action.profile);
     default:
       return state;
   }
