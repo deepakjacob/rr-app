@@ -13,9 +13,22 @@
 
 // Note that only dispatch can send messages to store.
 
-export const changeVisibility = (visible) => {
-  return {
-    type: 'SET_VISIBILITY',
-    visible
-  };
-}
+import { SET_VISIBILITY } from "./constants"
+
+export const changeVisibility = (visible) => ({
+   type: SET_VISIBILITY,
+   visible
+});
+
+// equivalent to the above, but in ols syntax
+
+// function changeVisibility (visible){
+//  var o = {
+//    type: 'SET_VISIBILITY',
+//    visible: visible
+//  }
+//   return o;
+// };
+
+
+// dispatch(changeVisibility(true));
