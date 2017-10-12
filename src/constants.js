@@ -1,0 +1,2 @@
+export const SET_VISIBILITY = 'SET_VISIBILITY';
+export const SET_PROFILE = 'SET_PROFILE';
