@@ -1,6 +1,7 @@
-import { combineReducers } from "redux";
-import visibility from "./visibilityReducer";
-import profile from "./profileReducer";
+import { combineReducers } from "redux"
+
+import profile from "./profileReducer"
+import visibility from "./visibilityReducer"
 
 // {
 //   visibility: {
@@ -13,9 +14,9 @@ import profile from "./profileReducer";
 // }
 
 export default combineReducers({
-  visibility
-  , profile
-});
+  visibility,
+  profile
+})
 
 //console.log("State of the store => ", JSON.stringify(store.getState()));
 //
