@@ -6,6 +6,7 @@ import * as visibilityActions from "./visibility-actions";
 import * as profileActions from "./profile-actions";
 
 import createConfiguredStore from "./createConfiguredStore";
+import { Dashboard } from "./Dashboard";
 import "./App.css";
 
 class AppComponent extends Component {
@@ -14,28 +15,27 @@ class AppComponent extends Component {
     this.show = this.show.bind(this);
     this.showProfile = this.showProfile.bind(this);
   }
+
   show = () => {
     const { visible, changeVisibility } = this.props;
     changeVisibility(visible);
   };
 
+  /*prettier-ignore*/
   showProfile = () => {
-    const { changeToRemoteProfile } = this.props;
-    changeToRemoteProfile();
-  };
+    const { changeToRemoteProfile } = this.props
+    changeToRemoteProfile()
+  }
 
   render() {
     const { visible, profile } = this.props;
     return (
-      <div className="App">
-        <button onClick={this.show}>Press Me</button>
-        <div>{visible ? <div> Visible </div> : <div> Not visible </div>}</div>
-
-        <button onClick={this.showProfile}>Press Me</button>
-        <div>
-          Name: {profile.name}, Role: {profile.role}
-        </div>
-      </div>
+      <Dashboard
+        visible={visible}
+        profile={profile}
+        show={this.show}
+        showProfile={this.showProfile}
+      />
     );
   }
 }
@@ -48,11 +48,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  // console.log(visibilityActions);
-  // console.log(profileActions);
-
   return bindActionCreators(
-    Object.assign({}, visibilityActions, profileActions),
+    { ...visibilityActions, ...profileActions },
     dispatch
   );
 };
